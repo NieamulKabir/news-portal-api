@@ -85,10 +85,10 @@ const displayAllNews = allNews => {
                             <p>${newsAll.author.name ? newsAll.author.name : 'Not Found'}</p>
                         </div>
                         <div>
-                            <p> <i class="fa-regular fa-eye"></i>${newsAll.total_view}</p>
+                            <p>${newsAll.total_view}</p>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-star"></i> ${newsAll.rating.number}</p>
+                            <p>${newsAll.rating.number}</p>
                         </div>
                         <div class="card-actions">
                             <label for="my-modal-6" 
