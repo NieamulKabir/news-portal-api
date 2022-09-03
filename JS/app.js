@@ -16,7 +16,7 @@ const loadAllNewsCategory = async () => {
 const displayAllCategory = (newses) => {
     const allNewsCategoryContainer = document.getElementById('all-news-category')
     allNewsCategoryContainer.textContent = '';
-    
+
     newses.forEach(news => {
         const div = document.createElement('div')
         div.innerHTML = `
@@ -54,7 +54,7 @@ const toggleSpinner = displayStyle => {
 
 // display individual category all news
 const displayAllNews = allNews => {
-    
+
     //error handle
     document.getElementById('error_messsage').innerText = '';
     if (allNews.length === 0) {
@@ -64,13 +64,13 @@ const displayAllNews = allNews => {
     const lengthContainer = document.getElementById('length')
     const newsContainer = document.getElementById('news-details')
     const p = document.createElement('p')
-    lengthContainer.textContent= ''
+    lengthContainer.textContent = ''
     p.innerHTML = `
          ${allNews.length} Items Found for the category
     `
     lengthContainer.appendChild(p)
     newsContainer.textContent = ''
-    
+
     allNews.forEach(newsAll => {
         const div = document.createElement('div')
         div.innerHTML = `
@@ -85,10 +85,13 @@ const displayAllNews = allNews => {
                             <p>${newsAll.author.name ? newsAll.author.name : 'Not Found'}</p>
                         </div>
                         <div>
-                            <p>${newsAll.total_view}</p>
+                            <p class='flex items-center'>
+                            <svg class='w-3 h-3' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>${newsAll.total_view?newsAll.total_view : 'Not Found'}</p>
                         </div>
                         <div>
-                            <p>${newsAll.rating.number}</p>
+                            <p class='flex items-center'> 
+                            <svg class='w-3 h-3' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                            ${newsAll.rating.number}</p>
                         </div>
                         <div class="card-actions">
                             <label for="my-modal-6" 
