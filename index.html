@@ -79,25 +79,30 @@
         <section>
              <!-- spinner  -->
             <div>
-                <h4 id="toggle_spinner" class="text-2xl mt-3 hidden">
+                <h4 id="toggle_spinner" class="text-2xl text-center my-3 py-3 hidden">
+                    <div class="flex justify-center items-center">
+                        <p class="mr-2">Loading</p>
+                        <div class="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full" role="status">
+                       
+                        </div>
+                      </div>
 
-                    <button type="button" class="bg-indigo-500 ..." disabled>
-                        <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-                         
-                        </svg>
-                        Processing...
-                      </button>
+                    
                 </h4>
             </div>
             <!-- error  -->
-            <div id="error_messsage" class="text-2xl">
+            <div id="error_messsage" class="text-2xl text-center">
 
             </div>
         </section>
 
         <!-- news-details  -->
         <section>
+
             <div>
+               <div class="text-center text-2xl font-medium my-4 py-2 bg-red-50" id="length">
+
+               </div>
                 <div id="news-details">
 
                 </div>

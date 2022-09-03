@@ -1,14 +1,14 @@
 // load all news category
 const loadAllNewsCategory = async () => {
-    try{
+    try {
         const url = `https://openapi.programming-hero.com/api/news/categories`
         const res = await fetch(url)
         const data = await res.json()
         displayAllCategory(data.data.news_category)
     }
-  catch{
+    catch {
 
-  }
+    }
 
 }
 
@@ -16,7 +16,7 @@ const loadAllNewsCategory = async () => {
 const displayAllCategory = (newses) => {
     const allNewsCategoryContainer = document.getElementById('all-news-category')
     allNewsCategoryContainer.textContent = '';
-
+    
     newses.forEach(news => {
         const div = document.createElement('div')
         div.innerHTML = `
@@ -28,21 +28,20 @@ const displayAllCategory = (newses) => {
         </div>
         `
         allNewsCategoryContainer.appendChild(div)
-
     })
 }
 
 // load individual category all news
 
 const loadAllNews = async category_id => {
-    try{
+    toggleSpinner('block');
+    try {
         const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
         const res = await fetch(url)
         const data = await res.json()
         displayAllNews(data.data);
-       
     }
-    catch{
+    catch {
 
     }
 }
@@ -52,18 +51,26 @@ const toggleSpinner = displayStyle => {
     document.getElementById('toggle_spinner').style.display = displayStyle;
 }
 
-   
+
 // display individual category all news
 const displayAllNews = allNews => {
+    
     //error handle
     document.getElementById('error_messsage').innerText = '';
     if (allNews.length === 0) {
         document.getElementById('error_messsage').innerText = 'Not Found';
         toggleSpinner('none');
     }
-    
+    const lengthContainer = document.getElementById('length')
     const newsContainer = document.getElementById('news-details')
+    const p = document.createElement('p')
+    lengthContainer.textContent= ''
+    p.innerHTML = `
+         ${allNews.length} Items Found for the category
+    `
+    lengthContainer.appendChild(p)
     newsContainer.textContent = ''
+    
     allNews.forEach(newsAll => {
         const div = document.createElement('div')
         div.innerHTML = `
@@ -85,26 +92,25 @@ const displayAllNews = allNews => {
                         </div>
                         <div class="card-actions">
                             <label for="my-modal-6" 
-                            onclick="loadNewsDetails('${newsAll._id}')" class="btn btn-primary" modal-button">Show Detail</label>
+                            onclick="loadNewsDetails('${newsAll._id}')" class="btn btn-primary" modal-button">Details</label>
                         </div>
                     </div>
                 </div>
           </div>
     `
         newsContainer.appendChild(div)
-
     })
-
+    toggleSpinner('none');
 }
 // load news details
 const loadNewsDetails = async news_id => {
-    try{
+    try {
         const url = `https://openapi.programming-hero.com/api/news/${news_id}`
         const res = await fetch(url)
         const data = await res.json()
         displayNewsDetails(data.data);
     }
-    catch{
+    catch {
 
     }
 }
