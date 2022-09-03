@@ -40,19 +40,21 @@ const loadAllNews = async category_id => {
         const res = await fetch(url)
         const data = await res.json()
         displayAllNews(data.data);
+       
     }
     catch{
 
     }
 }
+
 //spinner
 const toggleSpinner = displayStyle => {
     document.getElementById('toggle_spinner').style.display = displayStyle;
 }
 
+   
 // display individual category all news
 const displayAllNews = allNews => {
-
     //error handle
     document.getElementById('error_messsage').innerText = '';
     if (allNews.length === 0) {
@@ -76,10 +78,10 @@ const displayAllNews = allNews => {
                             <p>${newsAll.author.name ? newsAll.author.name : 'Not Found'}</p>
                         </div>
                         <div>
-                            <p>${newsAll.total_view}</p>
+                            <p> <i class="fa-regular fa-eye"></i>${newsAll.total_view}</p>
                         </div>
                         <div>
-                            <p>${newsAll.rating.number}</p>
+                            <p><i class="fa-solid fa-star"></i> ${newsAll.rating.number}</p>
                         </div>
                         <div class="card-actions">
                             <label for="my-modal-6" 
@@ -121,15 +123,15 @@ const displayNewsDetails = newsDetails => {
             </div>
 
             <div> 
-                <p class="font-medium"><span>  Author : </span> <span>${newsDetails[0].author.name ? newsDetails[0].author.name : 'Not Found'} </span> </p>
-                <p class="font-medium"><span>  Author : </span> <span>${newsDetails[0].details.slice(0, 100) ? newsDetails[0].details.slice(0, 100) : 'Not Found'}.... </span> </p>
-                <p class="font-medium"><small><span>  Published Date: </span> <span> ${newsDetails[0].author.published_date ? newsDetails[0].author.published_date : 'Not Found'}</small> </span> </p>
+                <p class="font-medium"><span class='text-purple-600'>  Author : </span> <span>${newsDetails[0].author.name ? newsDetails[0].author.name : 'Not Found'} </span> </p>
+                <p class="font-medium"><span class='text-purple-600'>  Details : </span> <span>${newsDetails[0].details.slice(0, 100) ? newsDetails[0].details.slice(0, 100) : 'Not Found'}.... </span> </p>
+                <p class="font-medium"><small><span class='text-purple-600'>  Published Date: </span> <span> ${newsDetails[0].author.published_date ? newsDetails[0].author.published_date : 'Not Found'}</small> </span> </p>
 
                 <p class="font-medium">
                     <small> 
-                        <span>  Ratting: </span> <span> ${newsDetails[0].rating.number ? newsDetails[0].rating.number : 'No data available'} </span>,,
-                        <span>  Badge:</span> <span> ${newsDetails[0].rating.badge ? newsDetails[0].rating.badge : 'No data available'} </span>,,
-                        <span>Total-View :</span> <span> ${newsDetails[0].total_view ? newsDetails[0].total_view : 'No data available'}   </span>
+                        <span class='text-purple-600'>  Ratting: </span> <span> ${newsDetails[0].rating.number ? newsDetails[0].rating.number : 'No data available'} </span>,,
+                        <span class='text-purple-600'>  Badge:</span> <span> ${newsDetails[0].rating.badge ? newsDetails[0].rating.badge : 'No data available'} </span>,,
+                        <span class='text-purple-600'>Total-View :</span> <span> ${newsDetails[0].total_view ? newsDetails[0].total_view : 'No data available'}   </span>
                     </small>
                 </p> 
                 

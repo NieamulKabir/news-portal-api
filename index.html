@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News House</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/b584ec1004.js" crossorigin="anonymous"></script>
     <!-- tailwind css  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,7 +16,7 @@
 </head>
 
 <body class="w-11/12 mx-auto mb-20">
- <!-- headern  -->
+ <!-- header -->
     <header>
         <nav class="">
             <div class="navbar bg-base-100">
@@ -29,19 +31,23 @@
                         </label>
                         <ul tabindex="0"
                             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>News</a></li>
-                            <li><a>Blog</a></li>
+                            <li class="font-semibold">
+                                <a href="/index.html">News</a>
+                            </li>
+                            <li class="font-semibold">
+                                <a href="/blog.html">Blog</a>
+                            </li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">News House</a>
+                    <a class="btn btn-ghost normal-case text-2xl font-bold">News  <span class="ml-2 bg-green-400 p-2 text-white rounded-lg">House</span> </a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
 
-                        <li>
+                        <li class="font-semibold">
                             <a href="/index.html">News</a>
                         </li>
-                        <li>
+                        <li class="font-semibold">
                             <a href="/blog.html">Blog</a>
                         </li>
 
@@ -62,8 +68,11 @@
 
 
          <!-- all category display  -->
-        <section>
-            <div id="all-news-category" class="grid grid-cols-2 lg:grid-cols-8 px-8 py-5 bg-zinc-300">
+        <section> 
+            <div id="all-news-category" class="grid grid-cols-2 lg:grid-cols-8 px-8 py-5 bg-zinc-300 rounded-lg">
+            </div>
+            <div id="data-length">
+
             </div>
         </section>
 
